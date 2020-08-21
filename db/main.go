@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
+	"github.com/felipemjesus/iniciando-com-go/db/utils"
 	_ "github.com/jinzhu/gorm/dialects/sqlite"
 )
 
@@ -22,6 +23,8 @@ func main() {
 	if err != nil {
 		panic(err.Error())
 	}
+
+	utils.Soma(1, 1)
 
 	fmt.Println(string(j))
 }
