@@ -1,7 +1,8 @@
 package main
 
 import (
-	"github.com/jinzhu/gorm"
+	"fmt"
+
 	_ "github.com/jinzhu/gorm/dialects/sqlite"
 )
 
@@ -9,11 +10,11 @@ type Member struct {
 	Name string
 }
 
-func main() {
-	db, err := gorm.Open("sqlite3", "db.sqlite")
-	if err != nil {
-		panic(err.Error())
-	}
+func (m Member) andar() {
+	fmt.Println(m.Name, "andou")
+}
 
-	db.AutoMigrate(&Member{})
+func main() {
+	m := Member{Name: "Felipe"}
+	m.andar()
 }
